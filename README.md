@@ -1,1 +1,1 @@
-***Sprint 1  - Challenge ***
+***Sprint 1  - Challenge***
