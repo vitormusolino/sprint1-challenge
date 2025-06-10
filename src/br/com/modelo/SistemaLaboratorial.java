@@ -10,7 +10,6 @@ public class SistemaLaboratorial {
                 ", Material (código): " + codigoMaterial + ", Quantidade: " + quantidade);
 
         Material materialNaOrigem = origem.buscarMaterialPorCodigo(codigoMaterial);
-
         if (materialNaOrigem == null) {
             System.out.println("Erro: Material com código " + codigoMaterial + " não encontrado em " + origem.getNomeEstoque() + ".");
             return;
@@ -23,7 +22,6 @@ public class SistemaLaboratorial {
         }
 
         materialNaOrigem.removerMaterial(quantidade);
-
         Material materialNoDestino = destino.buscarMaterialPorCodigo(codigoMaterial);
 
         if (materialNoDestino != null) {
@@ -56,7 +54,7 @@ public class SistemaLaboratorial {
         Material agulha = new Material(10,"Agulha", 100, new Localizacao(almoxarifado.getNomeEstoque()));
         Material algodao = new Material(23,"Algodao", 100, new Localizacao(almoxarifado.getNomeEstoque()));
         Material luvas = new Material(50,"Luvas", 100, new Localizacao(almoxarifado.getNomeEstoque()));
-        LocalDate vencimentoLiquido = LocalDate.of(2025,12,10);
+        LocalDate vencimentoLiquido = LocalDate.of(2024,12,10);
         MaterialPerecivel liquidoA = new MaterialPerecivel(101,"Líquido A",25, new Localizacao(almoxarifado.getNomeEstoque()), vencimentoLiquido);
 
         almoxarifado.adicionarMateriais(agulha);
@@ -78,7 +76,6 @@ public class SistemaLaboratorial {
         System.out.println(almoxarifado);
         System.out.println(sala1Exame);
         System.out.println(sala2Exame);
-
 
         realizarTransferencia(sala1Exame,almoxarifado,10,5);
 

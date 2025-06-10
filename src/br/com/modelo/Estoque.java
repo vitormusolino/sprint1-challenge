@@ -11,17 +11,10 @@ public class Estoque {
         return materiais;
     }
 
-    public void setMateriais(List<Material> materiais) {
-        this.materiais = materiais;
-    }
-
     public String getNomeEstoque() {
         return nomeEstoque;
     }
 
-    public void setNomeEstoque(String nomeEstoque) {
-        this.nomeEstoque = nomeEstoque;
-    }
 
     public Estoque(String nomeEstoque) {
         this.nomeEstoque = nomeEstoque;

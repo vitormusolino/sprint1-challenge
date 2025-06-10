@@ -10,14 +10,6 @@ public class MaterialPerecivel extends Material{
         this.dataVencimento = dataVencimento;
     }
 
-    public LocalDate getDataVencimento() {
-        return dataVencimento;
-    }
-
-    public void setDataVencimento(LocalDate dataVencimento) {
-        this.dataVencimento = dataVencimento;
-    }
-
     public boolean estaVencido() {
         return LocalDate.now().isAfter(dataVencimento); // Compara a data atual com a de vencimento
     }
