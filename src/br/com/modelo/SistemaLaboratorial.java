@@ -28,23 +28,36 @@ public class SistemaLaboratorial {
             materialNoDestino.adicionarMaterial(quantidade);
             materialNoDestino.setLocalizacao(new Localizacao(destino.getNomeEstoque()));
         } else {
-            Material novoMaterialNoDestino = new Material(
-                    materialNaOrigem.getCodigo(),
-                    materialNaOrigem.getNome(),
-                    quantidade,
-                    new Localizacao(destino.getNomeEstoque())
-            );
-            destino.adicionarMateriais(novoMaterialNoDestino);
+            if (materialNaOrigem instanceof MaterialPerecivel) {
+                MaterialPerecivel mpOriginal = (MaterialPerecivel) materialNaOrigem;
+                MaterialPerecivel novoMaterialNoDestino = new MaterialPerecivel(
+                        mpOriginal.getCodigo(),
+                        mpOriginal.getNome(),
+                        quantidade,
+                        new Localizacao(destino.getNomeEstoque()),
+                        mpOriginal.getDataVencimento()
+                );
+                destino.adicionarMateriais(novoMaterialNoDestino);
+            } else {
+                Material novoMaterialNoDestino = new Material(
+                        materialNaOrigem.getCodigo(),
+                        materialNaOrigem.getNome(),
+                        quantidade,
+                        new Localizacao(destino.getNomeEstoque())
+                );
+                destino.adicionarMateriais(novoMaterialNoDestino);
+            }
         }
 
         if (materialNaOrigem.getQuantidade() == 0) {
-            origem.getMateriais().remove(materialNaOrigem); // Acessa diretamente a lista (poderia ser um método em Estoque)
+            origem.getMateriais().remove(materialNaOrigem);
             System.out.println("Material '" + materialNaOrigem.getNome() + "' esgotado e removido de " + origem.getNomeEstoque() + ".");
         }
 
         System.out.println("Transferência de " + quantidade + " unidades de '" + materialNaOrigem.getNome() + "' concluída!");
         System.out.println("---------------------------\n");
     }
+
 
     public static void main(String[] args) {
         Estoque almoxarifado = new Estoque("Almoxarifado Central");

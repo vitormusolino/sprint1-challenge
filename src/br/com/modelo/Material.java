@@ -45,6 +45,6 @@ public class Material {
 
     @Override
     public String toString() {
-        return "Código: " + codigo + "; Material: " + nome + "; Quantidade: " + quantidade + "; Localização: " + localizacao + ".\n";
+        return "Código: " + codigo + "; Material: " + nome + "; Quantidade: " + quantidade + "; Localização: " + localizacao + "\n";
     }
 }

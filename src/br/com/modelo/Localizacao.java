@@ -9,6 +9,6 @@ public class Localizacao {
 
     @Override
     public String toString() {
-        return "Local : " + local;
+        return local;
     }
 }
